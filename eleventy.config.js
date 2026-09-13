@@ -1,0 +1,11 @@
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addPassthroughCopy({ "src/images": "images" });
+  eleventyConfig.addPassthroughCopy({ "admin": "admin" });
+
+  return {
+    dir: {
+      input: "src",
+      output: "_site"
+    }
+  };
+};
