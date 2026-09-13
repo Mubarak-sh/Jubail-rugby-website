@@ -1,0 +1,69 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/images"
+public_folder: "/images"
+
+locale: "ar"
+
+collections:
+  - name: "settings"
+    label: "الإعدادات العامة"
+    files:
+      - name: "general"
+        label: "معلومات عامة"
+        file: "src/_data/settings.json"
+        fields:
+          - { label: "شعار الفريق", name: "logo", widget: "image" }
+          - { label: "البريد الإلكتروني للتواصل", name: "contact_email", widget: "string" }
+          - { label: "حساب انستقرام (بدون @)", name: "instagram_handle", widget: "string" }
+          - { label: "العنوان الرئيسي - إنجليزي", name: "hero_heading_en", widget: "string" }
+          - { label: "العنوان الرئيسي - عربي", name: "hero_heading_ar", widget: "string" }
+          - { label: "الوصف تحت العنوان - إنجليزي", name: "hero_sub_en", widget: "text" }
+          - { label: "الوصف تحت العنوان - عربي", name: "hero_sub_ar", widget: "text" }
+
+  - name: "news"
+    label: "الأخبار"
+    files:
+      - name: "news_list"
+        label: "قائمة الأخبار"
+        file: "src/_data/news.json"
+        fields:
+          - name: "items"
+            label: "خبر"
+            widget: "list"
+            summary: "{{title_en}}"
+            fields:
+              - { label: "السنة / التاريخ", name: "date", widget: "string" }
+              - { label: "الوسم - إنجليزي (مثال: ASIA 7s · OMAN)", name: "tag_en", widget: "string" }
+              - { label: "الوسم - عربي", name: "tag_ar", widget: "string" }
+              - { label: "العنوان - إنجليزي", name: "title_en", widget: "string" }
+              - { label: "العنوان - عربي", name: "title_ar", widget: "string" }
+              - { label: "الوصف - إنجليزي", name: "desc_en", widget: "text" }
+              - { label: "الوصف - عربي", name: "desc_ar", widget: "text" }
+
+  - name: "fixtures"
+    label: "المباريات والفعاليات"
+    files:
+      - name: "fixtures_list"
+        label: "جدول المباريات"
+        file: "src/_data/fixtures.json"
+        fields:
+          - name: "rows"
+            label: "مباراة / فعالية"
+            widget: "list"
+            summary: "{{event_en}} — {{date}}"
+            fields:
+              - { label: "اسم الفعالية - إنجليزي", name: "event_en", widget: "string" }
+              - { label: "اسم الفعالية - عربي", name: "event_ar", widget: "string" }
+              - label: "المستوى"
+                name: "level"
+                widget: "select"
+                options:
+                  - { label: "محلي", value: "local" }
+                  - { label: "وطني", value: "national" }
+                  - { label: "دولي", value: "intl" }
+              - { label: "التاريخ", name: "date", widget: "string" }
+              - { label: "الموقع - إنجليزي", name: "location_en", widget: "string" }
+              - { label: "الموقع - عربي", name: "location_ar", widget: "string" }

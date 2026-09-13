@@ -1,0 +1,13 @@
+{
+  "rows": [
+    {"event_en": "SARF 7s Series — Leg 1", "event_ar": "سلسلة سباعيات الاتحاد — الجولة ١", "level": "national", "date": "10 Oct 2025", "location_en": "Riyadh", "location_ar": "الرياض"},
+    {"event_en": "Dubai 7s", "event_ar": "سباعيات دبي", "level": "intl", "date": "29 Nov – 1 Dec 2025", "location_en": "Dubai, UAE", "location_ar": "دبي، الإمارات"},
+    {"event_en": "SARF 7s Series — Leg 2", "event_ar": "سلسلة سباعيات الاتحاد — الجولة ٢", "level": "national", "date": "14 Nov 2025", "location_en": "Riyadh", "location_ar": "الرياض"},
+    {"event_en": "SARF 15s — Round 1", "event_ar": "دوري الخمسة عشر للاتحاد — الجولة ١", "level": "national", "date": "31 Oct 2025", "location_en": "Riyadh / Jeddah", "location_ar": "الرياض / جدة"},
+    {"event_en": "SARF 7s Series — Leg 3", "event_ar": "سلسلة سباعيات الاتحاد — الجولة ٣", "level": "national", "date": "14 Jan 2026", "location_en": "Khobar", "location_ar": "الخبر"},
+    {"event_en": "Arab 7s", "event_ar": "سباعيات العرب", "level": "intl", "date": "6–7 Feb 2026", "location_en": "Egypt", "location_ar": "مصر"},
+    {"event_en": "SARF 7s Series — Final", "event_ar": "سلسلة سباعيات الاتحاد — النهائي", "level": "national", "date": "30 Jan 2026", "location_en": "Riyadh", "location_ar": "الرياض"},
+    {"event_en": "Jubail 7s", "event_ar": "سباعيات الجبيل", "level": "local", "date": "TBD", "location_en": "Jubail", "location_ar": "الجبيل"},
+    {"event_en": "Jubail vs. Bahrain (Friendly)", "event_ar": "الجبيل ضد البحرين (ودية)", "level": "intl", "date": "TBD", "location_en": "Bahrain", "location_ar": "البحرين"}
+  ]
+}
