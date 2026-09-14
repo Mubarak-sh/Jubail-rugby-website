@@ -16,6 +16,7 @@ collections:
         file: "src/_data/settings.json"
         fields:
           - { label: "شعار الفريق", name: "logo", widget: "image" }
+          - { label: "عدد اللاعبين الحاليين (مثال: 30+)", name: "active_players", widget: "string" }
           - { label: "البريد الإلكتروني للتواصل", name: "contact_email", widget: "string" }
           - { label: "حساب انستقرام (بدون @)", name: "instagram_handle", widget: "string" }
           - { label: "العنوان الرئيسي - إنجليزي", name: "hero_heading_en", widget: "string" }
@@ -35,6 +36,7 @@ collections:
             widget: "list"
             summary: "{{title_en}}"
             fields:
+              - { label: "صورة الخبر (اختياري)", name: "image", widget: "image", required: false }
               - { label: "السنة / التاريخ", name: "date", widget: "string" }
               - { label: "الوسم - إنجليزي (مثال: ASIA 7s · OMAN)", name: "tag_en", widget: "string" }
               - { label: "الوسم - عربي", name: "tag_ar", widget: "string" }
