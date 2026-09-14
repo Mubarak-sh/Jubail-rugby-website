@@ -16,9 +16,15 @@ collections:
         file: "src/_data/settings.json"
         fields:
           - { label: "شعار الفريق", name: "logo", widget: "image" }
+          - { label: "صورة خلفية القسم الرئيسي (اختياري)", name: "hero_background", widget: "image", required: false }
+          - { label: "إظهار قسم جدول المباريات؟", name: "show_fixtures", widget: "boolean" }
+          - { label: "إظهار قسم المتجر؟", name: "show_shop", widget: "boolean" }
           - { label: "عدد اللاعبين الحاليين (مثال: 30+)", name: "active_players", widget: "string" }
           - { label: "البريد الإلكتروني للتواصل", name: "contact_email", widget: "string" }
-          - { label: "حساب انستقرام (بدون @)", name: "instagram_handle", widget: "string" }
+          - { label: "حساب انستقرام (بدون @)", name: "instagram_handle", widget: "string", required: false }
+          - { label: "حساب تيك توك (بدون @)", name: "tiktok_handle", widget: "string", required: false }
+          - { label: "حساب تويتر / X (بدون @)", name: "twitter_handle", widget: "string", required: false }
+          - { label: "رابط لينكدإن الكامل", name: "linkedin_url", widget: "string", required: false }
           - { label: "العنوان الرئيسي - إنجليزي", name: "hero_heading_en", widget: "string" }
           - { label: "العنوان الرئيسي - عربي", name: "hero_heading_ar", widget: "string" }
           - { label: "الوصف تحت العنوان - إنجليزي", name: "hero_sub_en", widget: "text" }
