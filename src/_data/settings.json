@@ -1,16 +1,16 @@
 {
-  "logo": "/images/logo.png",
-  "active_players": "30+",
-  "hero_background": "",
-  "show_fixtures": true,
-  "show_shop": false,
   "hero_heading_en": "Rugby, built by Jubail, for Jubail.",
-  "hero_heading_ar": "رقبي بناه أبناء الجبيل، لأجل الجبيل.",
-  "hero_sub_en": "A community rugby team grown from a handful of players into a squad of 30+, carrying the city's \"Industry and Life\" spirit onto the pitch — and the beach.",
-  "hero_sub_ar": "فريق رقبي مجتمعي نما من عدد قليل من اللاعبين إلى أكثر من ٣٠ لاعباً، يحمل روح \"الصناعة والحياة\" التي تمثل مدينة الجبيل إلى أرض الملعب — وإلى الشاطئ.",
-  "contact_email": "Info@jubailrugby.com",
-  "instagram_handle": "Jubail_rugby",
+  "logo": "/images/logo.png",
+  "show_fixtures": false,
   "tiktok_handle": "",
-  "twitter_handle": "",
-  "linkedin_url": ""
+  "hero_sub_en": "A community rugby team grown from a handful of players into a squad of 30+, carrying the city's \"Industry and Life\" spirit onto the pitch.",
+  "linkedin_url": "",
+  "hero_heading_ar": "رقبي بناه أبناء الجبيل، لأجل الجبيل.",
+  "hero_background": "",
+  "twitter_handle": "Jubail_rugby",
+  "hero_sub_ar": "فريق رقبي مجتمعي نما من عدد قليل من اللاعبين إلى أكثر من ٣٠ لاعباً، يحمل روح \"الصناعة والحياة\" التي تمثل مدينة الجبيل إلى أرض الملعب.",
+  "instagram_handle": "Jubail_rugby",
+  "show_shop": false,
+  "active_players": "30+",
+  "contact_email": "Info@jubailrugby.com"
 }
