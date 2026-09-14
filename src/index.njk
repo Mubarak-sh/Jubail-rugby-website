@@ -281,6 +281,17 @@
     font-size:12px;letter-spacing:0.03em;padding:6px 14px;cursor:pointer;
   }
   .lang-switch button.active{background:rgba(255,255,255,0.16);color:#fff;}
+
+  /* REGISTRATION FORM */
+  .reg-form{max-width:520px;margin-top:26px;display:grid;gap:16px;}
+  .reg-form label{display:block;font-size:13px;font-family:'Oswald',sans-serif;letter-spacing:0.03em;color:rgba(255,255,255,0.75);margin-bottom:6px;text-transform:uppercase;}
+  .reg-form input, .reg-form select, .reg-form textarea{
+    width:100%;padding:12px 14px;border-radius:2px;border:1px solid rgba(255,255,255,0.25);
+    background:rgba(255,255,255,0.06);color:#fff;font-family:'Inter',sans-serif;font-size:15px;
+  }
+  .reg-form input::placeholder, .reg-form textarea::placeholder{color:rgba(255,255,255,0.4);}
+  .reg-form button{align-self:start;}
+  .reg-success{display:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);padding:20px;border-radius:2px;margin-top:20px;}
 </style>
 </head>
 <body>
@@ -326,7 +337,7 @@
       <a href="#partners" class="btn btn-outline"><span class="t-en">Partner With Us</span><span class="t-ar" dir="rtl">كن شريكاً</span></a>
     </div>
     <div class="hero-stats">
-      <div><div class="stat-num">30+</div><div class="stat-label"><span class="t-en">Active Players</span><span class="t-ar" dir="rtl">لاعب نشط</span></div></div>
+      <div><div class="stat-num">{{ settings.active_players }}</div><div class="stat-label"><span class="t-en">Active Players</span><span class="t-ar" dir="rtl">لاعب نشط</span></div></div>
       <div><div class="stat-num">6</div><div class="stat-label"><span class="t-en">Capped for Saudi National Team</span><span class="t-ar" dir="rtl">مثّلوا المنتخب السعودي</span></div></div>
       <div><div class="stat-num">3rd</div><div class="stat-label"><span class="t-en">Place, Saudi League 24–25</span><span class="t-ar" dir="rtl">المركز، الدوري السعودي ٢٤–٢٥</span></div></div>
       <div><div class="stat-num">90%</div><div class="stat-label"><span class="t-en">Saudi National Players</span><span class="t-ar" dir="rtl">لاعبون سعوديون</span></div></div>
@@ -384,7 +395,7 @@
     <div class="news-grid">
       {% for item in news.items %}
       <div class="news-card">
-        <div class="news-thumb"><span><span class="t-en">{{ item.tag_en }}</span><span class="t-ar" dir="rtl">{{ item.tag_ar }}</span></span></div>
+        <div class="news-thumb"{% if item.image %} style="background-image:url('{{ item.image }}');background-size:cover;background-position:center;"{% endif %}>{% if not item.image %}<span><span class="t-en">{{ item.tag_en }}</span><span class="t-ar" dir="rtl">{{ item.tag_ar }}</span></span>{% endif %}</div>
         <div class="news-body">
           <div class="news-date">{{ item.date }}</div>
           <h3><span class="t-en">{{ item.title_en }}</span><span class="t-ar" dir="rtl">{{ item.title_ar }}</span></h3>
@@ -467,9 +478,43 @@
       <div class="kicker" style="color:var(--grey-light);">Get Involved</div>
       <h2><span class="t-en">Play, train, or just come watch</span><span class="t-ar" dir="rtl">العب، تمرّن، أو تعال تشجّع</span></h2>
       <p><span class="t-en">Tryouts run every Friday at Deffi Park, and training happens three days a week. No experience required — beginners are welcome.</span><span class="t-ar" dir="rtl">التجارب كل جمعة في منتزه الدفي، والتدريب ثلاث أيام أسبوعياً. ما تحتاج خبرة سابقة — المبتدئون مرحّب بهم.</span></p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-gold"><span class="t-en">Register Interest</span><span class="t-ar" dir="rtl">سجّل اهتمامك</span></a>
+      <form class="reg-form" name="player-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="reg-form">
+        <input type="hidden" name="form-name" value="player-registration" />
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+        <div>
+          <label><span class="t-en">Full Name</span><span class="t-ar" dir="rtl">الاسم الكامل</span></label>
+          <input type="text" name="full_name" required placeholder="Ahmed Al-Otaibi" />
+        </div>
+        <div>
+          <label><span class="t-en">Phone Number (WhatsApp)</span><span class="t-ar" dir="rtl">رقم الجوال (واتساب)</span></label>
+          <input type="tel" name="phone" required placeholder="05xxxxxxxx" />
+        </div>
+        <div>
+          <label><span class="t-en">Age</span><span class="t-ar" dir="rtl">العمر</span></label>
+          <input type="number" name="age" min="10" max="70" required />
+        </div>
+        <div>
+          <label><span class="t-en">Rugby Experience (optional)</span><span class="t-ar" dir="rtl">خبرة سابقة بالرقبي (اختياري)</span></label>
+          <textarea name="notes" rows="3" placeholder="Beginner, played before, position, etc."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold"><span class="t-en">Register Interest</span><span class="t-ar" dir="rtl">سجّل اهتمامك</span></button>
+      </form>
+      <div class="reg-success" id="reg-success">
+        <span class="t-en">Thanks! We've received your registration and will contact you soon.</span><span class="t-ar" dir="rtl">شكراً! استلمنا تسجيلك وبنتواصل معك قريباً.</span>
       </div>
+      <script>
+        document.getElementById('reg-form').addEventListener('submit', function(e){
+          e.preventDefault();
+          var form = e.target;
+          var data = new FormData(form);
+          fetch('/', { method: 'POST', body: new URLSearchParams(data) })
+            .then(function(){
+              form.style.display = 'none';
+              document.getElementById('reg-success').style.display = 'block';
+            })
+            .catch(function(){ form.submit(); });
+        });
+      </script>
     </div>
     <ul class="join-steps">
       <li><b>01</b> <span class="t-en">Come to a Friday tryout at Deffi Park — just show up.</span><span class="t-ar" dir="rtl">احضر تجربة الجمعة في منتزه الدفي — فقط تعال.</span></li>
