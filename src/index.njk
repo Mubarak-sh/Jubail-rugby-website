@@ -322,7 +322,7 @@
   </nav>
 </header>
 
-<section class="hero" id="top">
+<section class="hero" id="top"{% if settings.hero_background %} style="background-image:linear-gradient(160deg, rgba(15,26,42,0.75) 0%, rgba(15,26,42,0.55) 65%, rgba(74,22,32,0.6) 130%), url('{{ settings.hero_background }}');background-size:cover;background-position:center;"{% endif %}>
   <svg class="hero-sail" viewBox="0 0 200 200" fill="none">
     <path d="M60 170 L100 30 L140 170 Z" stroke="#D9DBDD" stroke-width="1.5"/>
   </svg>
@@ -407,6 +407,7 @@
   </div>
 </section>
 
+{% if settings.show_fixtures %}
 <section class="fixtures" id="fixtures">
   <div class="wrap">
     <div class="section-head">
@@ -429,6 +430,7 @@
     </div>
   </div>
 </section>
+{% endif %}
 
 <section class="partners" id="partners">
   <div class="wrap">
@@ -525,6 +527,7 @@
   </div>
 </section>
 
+{% if settings.show_shop %}
 <section id="shop">
   <div class="wrap">
     <div class="section-head">
@@ -566,6 +569,7 @@
     </div>
   </div>
 </section>
+{% endif %}
 
 <footer id="contact">
   <div class="wrap foot-grid">
@@ -580,7 +584,10 @@
       <ul class="foot-links">
         <li><a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a></li>
         <li><a href="https://jubailrugby.com" target="_blank" rel="noopener">jubailrugby.com</a></li>
-        <li><a href="https://instagram.com/{{ settings.instagram_handle }}" target="_blank" rel="noopener">@{{ settings.instagram_handle }}</a></li>
+        {% if settings.instagram_handle %}<li><a href="https://instagram.com/{{ settings.instagram_handle }}" target="_blank" rel="noopener">@{{ settings.instagram_handle }} (Instagram)</a></li>{% endif %}
+        {% if settings.tiktok_handle %}<li><a href="https://tiktok.com/@{{ settings.tiktok_handle }}" target="_blank" rel="noopener">@{{ settings.tiktok_handle }} (TikTok)</a></li>{% endif %}
+        {% if settings.twitter_handle %}<li><a href="https://x.com/{{ settings.twitter_handle }}" target="_blank" rel="noopener">@{{ settings.twitter_handle }} (X)</a></li>{% endif %}
+        {% if settings.linkedin_url %}<li><a href="{{ settings.linkedin_url }}" target="_blank" rel="noopener">LinkedIn</a></li>{% endif %}
       </ul>
     </div>
     <div>
